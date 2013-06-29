@@ -17,11 +17,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    if current_user
-      @posts = Post.find_all_by_user_id(current_user.id)
-      @comments = Comment.find_all_by_user_id(current_user.id)
-    else
-      redirect :root
-    end
+    @user = User.find(params[:id])    
   end
 end

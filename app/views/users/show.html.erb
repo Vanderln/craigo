@@ -1,0 +1,8 @@
+<h1>Welcome to <%= @user.username %> 's Page</h1>
+
+<% @user.posts.each do |post| %>
+<ul>
+  <li><%= link_to post.title, post_path(post.id)%></li>
+  <li><%= post.content %></li>
+</ul>
+<%end%>
