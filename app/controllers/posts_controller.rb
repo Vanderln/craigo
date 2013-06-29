@@ -4,9 +4,12 @@ class PostsController < ApplicationController
   end
 
   def new
+    
   end
 
   def create
+    @post = Post.create(params[:post])
+
   end
   
 
