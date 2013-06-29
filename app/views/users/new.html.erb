@@ -1,0 +1,17 @@
+<h3>Sign Up Below!</h3>
+
+<%= form_for @user  do |f|%>
+<%= f.label :username %>
+<%= f.text_field :username, placeholder: "username" %>
+<%= f.label :email %>
+<%= f.text_field :email, placeholder: "email" %>
+<%= f.label :password %>
+<%= f.password_field :password, placeholder: "da secrets" %>
+<%= f.submit("Sign me up") %>
+<%end%>
+
+<%if @user %>
+<% @user.errors.each do |key, message|%>
+<h1><%= key %> <%= message %></h1>
+<%end%>
+<%end%>

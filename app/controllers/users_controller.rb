@@ -7,21 +7,18 @@ class UsersController < ApplicationController
   end
 
   def create
+    p params.inspect
     @user = User.new(params[:user])
     if @user.save
       session[:user_id] = @user.id
       redirect_to root_path
     else
+      flash.now.alert = "Something went wrong!!"
       render new_user_path
     end
   end
 
   def show
-    if current_user
-      @posts = Post.find_all_by_user_id(current_user.id)
-      @comments = Comment.find_all_by_user_id(current_user.id)
-    else
-      redirect :root
-    end
+    @user = User.find(params[:id])    
   end
 end
