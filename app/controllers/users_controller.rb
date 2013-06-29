@@ -7,11 +7,13 @@ class UsersController < ApplicationController
   end
 
   def create
+    p params.inspect
     @user = User.new(params[:user])
     if @user.save
       session[:user_id] = @user.id
       redirect_to root_path
     else
+      flash.now.alert = "Something went wrong!!"
       render new_user_path
     end
   end
