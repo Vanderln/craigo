@@ -1,6 +1,8 @@
-<% @posts.each do |post| %>
+
 <ul>
-  <li><%= link_to post.title, post.title %><li>
-  <li><%= link_to post.user.username, post.user.username %></li>
+  <% @posts.each do |post| %>
+    <li><%= link_to post.title, post_path(post) %></li>
+    <li><%= link_to post.user.username,  user_path(post.user.id) %></li>
+  <%end%>
 </ul>
-<%end%>
+
