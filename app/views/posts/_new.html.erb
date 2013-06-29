@@ -1,0 +1,7 @@
+<%= form_tag( action: :create, controller: :posts)  do |p| %>
+<%= label_tag :title %>
+<%= text_field_tag :title, nil, placeholder: "title"%>
+<p><%= label_tag :content %></p>
+<p><%= text_area_tag :content, nil, rows: 20, cols: 40, placeholder: "content"%></p>
+<%= submit_tag "Submit Post" %>
+<% end %> 

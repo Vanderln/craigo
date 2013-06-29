@@ -1,0 +1,5 @@
+<h5>Create a new post </h5>
+<%= render 'new' %>
+<h1><%=@post.title %></h1>
+<h3><%=@post.content%></h3>
+<h4><%= link_to @post.user.username, user_path(@post.user_id) %></h4>
