@@ -1,7 +1,6 @@
 Craigo::Application.routes.draw do
-  resources :users do
-    resources :posts
-  end
+  resources :posts
+  resources :users 
 
   root :to => 'posts#index'
 
