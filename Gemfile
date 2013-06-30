@@ -45,6 +45,14 @@ group :development, :test do
   gem 'guard-rspec'
 end
 
+group :test, :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
+  gem 'rspec-rails'
+  gem 'guard-rspec'
+end
+
 group :test do
   gem 'database_cleaner'
   gem 'factory_girl_rails'
