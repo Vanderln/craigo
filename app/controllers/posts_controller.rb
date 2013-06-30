@@ -4,12 +4,21 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create(params[:post])
+    @post = Post.new(title: params[:title], 
+                    content: params[:content], 
+                    user_id: current_user.id)
+
     if @post.save
-      redirect_to post_path(@post.id)
+      respond_to do |format|
+        format.html {render partial: 'player'}
+      end
     else
-      flash.now.alert = "Something went wrong with your post, try again"
-      render user_posts(current_user.id)
+      respond_to do |format|
+        format.js
+      end
+      # flash.now.alert = "Something went wrong with your post, try again"
+      # render user_posts(current_user.id)
+      # render page.js {'edit'}
     end
   end
 

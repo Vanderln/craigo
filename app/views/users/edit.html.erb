@@ -1,0 +1,14 @@
+<h1> Edit your info! <%=@current_user.username %> </h1>
+<%= form_for @current_user  do |f|%>
+<%= f.label :username %>
+<%= f.text_field :username, value: @current_user.username %>
+<%= f.label :email %>
+<%= f.text_field :email, value: @current_user.email %>
+<%= f.label :password %>
+<%= f.password_field :password, placeholder: "you should know this" %>
+<%= f.submit("Edit my info") %>
+<%end%>
+
+<%= form_for @current_user, method: :delete do |f| %>
+<%= f.submit("destroy yourself") %>
+<% end %>
